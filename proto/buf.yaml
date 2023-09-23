@@ -1,0 +1,17 @@
+# prettier-ignore
+---
+version: v1
+
+name: buf.build/connect-sdk/reflection-api
+
+deps:
+  - buf.build/googleapis/googleapis
+  - buf.build/envoyproxy/protoc-gen-validate
+
+lint:
+  use:
+    - DEFAULT
+  ignore:
+    - grpc/reflection/v1/reflection.proto
+    - grpc/reflection/v1alpha/reflection.proto
+  allow_comment_ignores: true
