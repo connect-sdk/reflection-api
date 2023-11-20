@@ -22,6 +22,7 @@ func (x *ReflectionServiceHandler) Mount(r chi.Router) {
 	options = append(options, interceptor.WithLogger())
 	options = append(options, interceptor.WithRecovery())
 	options = append(options, interceptor.WithValidator())
+	options = append(options, interceptor.WithIncomingContext())
 
 	r.Group(func(r chi.Router) {
 		// mount the middleware
