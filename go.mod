@@ -3,7 +3,7 @@ module github.com/connect-sdk/reflection-api
 go 1.21.2
 
 require (
-	connectrpc.com/connect v1.12.0
+	connectrpc.com/connect v1.13.0
 	connectrpc.com/grpcreflect v1.2.0
 	github.com/connect-sdk/interceptor v0.0.0-20231124055640-b4ccac4502d1
 	github.com/connect-sdk/middleware v0.0.0-20231120130547-71cd7b2578bb
