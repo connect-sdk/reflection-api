@@ -35,7 +35,7 @@ import (
 // generated with a version of connect newer than the one compiled into your binary. You can fix the
 // problem by either regenerating this code with an older version of connect or updating the connect
 // version compiled into your binary.
-const _ = connect.IsAtLeastVersion0_1_0
+const _ = connect.IsAtLeastVersion1_13_0
 
 const (
 	// ServerReflectionName is the fully-qualified name of the ServerReflection service.
@@ -53,6 +53,12 @@ const (
 	// ServerReflectionServerReflectionInfoProcedure is the fully-qualified name of the
 	// ServerReflection's ServerReflectionInfo RPC.
 	ServerReflectionServerReflectionInfoProcedure = "/grpc.reflection.v1alpha.ServerReflection/ServerReflectionInfo"
+)
+
+// These variables are the protoreflect.Descriptor objects for the RPCs defined in this package.
+var (
+	serverReflectionServiceDescriptor                    = v1alpha.File_grpc_reflection_v1alpha_reflection_proto.Services().ByName("ServerReflection")
+	serverReflectionServerReflectionInfoMethodDescriptor = serverReflectionServiceDescriptor.Methods().ByName("ServerReflectionInfo")
 )
 
 // ServerReflectionClient is a client for the grpc.reflection.v1alpha.ServerReflection service.
@@ -75,7 +81,8 @@ func NewServerReflectionClient(httpClient connect.HTTPClient, baseURL string, op
 		serverReflectionInfo: connect.NewClient[v1alpha.ServerReflectionRequest, v1alpha.ServerReflectionResponse](
 			httpClient,
 			baseURL+ServerReflectionServerReflectionInfoProcedure,
-			opts...,
+			connect.WithSchema(serverReflectionServerReflectionInfoMethodDescriptor),
+			connect.WithClientOptions(opts...),
 		),
 	}
 }
@@ -107,7 +114,8 @@ func NewServerReflectionHandler(svc ServerReflectionHandler, opts ...connect.Han
 	serverReflectionServerReflectionInfoHandler := connect.NewBidiStreamHandler(
 		ServerReflectionServerReflectionInfoProcedure,
 		svc.ServerReflectionInfo,
-		opts...,
+		connect.WithSchema(serverReflectionServerReflectionInfoMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
 	)
 	return "/grpc.reflection.v1alpha.ServerReflection/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
