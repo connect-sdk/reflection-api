@@ -7,7 +7,7 @@ require (
 	connectrpc.com/grpcreflect v1.2.0
 	github.com/connect-sdk/interceptor v0.0.0-20240226160410-6ad7da9624bf
 	github.com/connect-sdk/middleware v0.0.0-20240302064308-b2a36e0681ed
-	github.com/go-chi/chi/v5 v5.0.13
+	github.com/go-chi/chi/v5 v5.0.14
 	google.golang.org/protobuf v1.34.2
 )
 
