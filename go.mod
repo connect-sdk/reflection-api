@@ -1,6 +1,7 @@
 module github.com/connect-sdk/reflection-api
 
 go 1.21.2
+toolchain go1.24.1
 
 require (
 	connectrpc.com/connect v1.18.1
@@ -8,7 +9,7 @@ require (
 	github.com/connect-sdk/interceptor v0.0.0-20240226160410-6ad7da9624bf
 	github.com/connect-sdk/middleware v0.0.0-20240302064308-b2a36e0681ed
 	github.com/go-chi/chi/v5 v5.2.1
-	google.golang.org/protobuf v1.36.5
+	google.golang.org/protobuf v1.36.6
 )
 
 require (
